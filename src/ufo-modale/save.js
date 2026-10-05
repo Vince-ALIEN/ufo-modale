@@ -14,6 +14,18 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
 import CloseIcon from './close-icon';
+import {
+	CLOSE_BUTTON_CLASSES,
+	CLOSE_BUTTON_ICON_ONLY_CLASSES,
+	CLOSE_BUTTON_WITH_LABEL_CLASSES,
+	CLOSE_ICON_CLASSES,
+	CONTENT_CLASSES,
+	DIALOG_CLASSES,
+	HEADER_CLASSES,
+	TITLE_CLASSES,
+	cx,
+} from './classes';
+import { getHeadingTagName, getPanelProps } from './utils';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -32,51 +44,84 @@ export default function save( { attributes } ) {
 		displayIconOnly,
 		enableCloseButton,
 		closeButtonLabel,
-		headingLevel: HeadingTag,
+		headingLevel,
 		modalId,
 		preventScroll,
 		title,
 	} = attributes;
 
 	const dialogId = modalId ? MODAL_ID_PREFIX + modalId : undefined;
-	const customProps = {};
-
-	if ( preventScroll ) {
-		customProps.className = 'wp-block-ufo-modale--prevent-scroll';
-	}
+	const hasTitle = ! RichText.isEmpty( title );
+	const hasCloseButton = enableCloseButton && closedBy !== 'none';
 
 	return (
 		<dialog
-			{ ...useBlockProps.save( customProps ) }
+			{ ...useBlockProps.save( {
+				className: cx(
+					DIALOG_CLASSES,
+					preventScroll && 'wp-block-ufo-modale--prevent-scroll'
+				),
+			} ) }
 			id={ dialogId }
 			aria-modal="true"
 			// closedBy is a valid dialog attribute (HTML spec); ESLint doesn't recognize it yet.
 			// eslint-disable-next-line react/no-unknown-property
 			closedBy={ closedBy }
 		>
-			<div className="wp-block-ufo-modale__header">
-				<RichText.Content
-					className="wp-block-ufo-modale__title"
-					tagName={ `h${ String( HeadingTag ) }` }
-					value={ title }
-				/>
-			</div>
-			<div className="wp-block-ufo-modale__content">
-				<InnerBlocks.Content />
-			</div>
-			{ enableCloseButton && closedBy !== 'none' && (
-				<button
-					type="button"
-					className="wp-block-ufo-modale__close-button"
+			<div { ...getPanelProps( attributes ) }>
+				{ ( hasTitle || hasCloseButton ) && (
+					<div
+						className={ cx(
+							'wp-block-ufo-modale__header',
+							HEADER_CLASSES
+						) }
+					>
+						{ hasTitle && (
+							<RichText.Content
+								className={ cx(
+									'wp-block-ufo-modale__title',
+									TITLE_CLASSES
+								) }
+								tagName={ getHeadingTagName( headingLevel ) }
+								value={ title }
+							/>
+						) }
+						{ hasCloseButton && (
+							<button
+								type="button"
+								className={ cx(
+									'wp-block-ufo-modale__close-button',
+									CLOSE_BUTTON_CLASSES,
+									displayIconOnly
+										? CLOSE_BUTTON_ICON_ONLY_CLASSES
+										: CLOSE_BUTTON_WITH_LABEL_CLASSES
+								) }
+							>
+								<span
+									className={
+										displayIconOnly ? 'sr-only' : undefined
+									}
+								>
+									{ closeButtonLabel ||
+										__(
+											'Close this dialog window',
+											'ufo-modale'
+										) }
+								</span>
+								<CloseIcon className={ CLOSE_ICON_CLASSES } />
+							</button>
+						) }
+					</div>
+				) }
+				<div
+					className={ cx(
+						'wp-block-ufo-modale__content',
+						CONTENT_CLASSES
+					) }
 				>
-					<span className={ displayIconOnly ? 'sr-only' : '' }>
-						{ closeButtonLabel
-							? closeButtonLabel
-							: __( 'Close this dialog window', 'ufo-modale' ) }
-					</span>
-					<CloseIcon />
-				</button>
-			) }
+					<InnerBlocks.Content />
+				</div>
+			</div>
 		</dialog>
 	);
 }

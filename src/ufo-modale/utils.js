@@ -4,6 +4,17 @@
 
 import { select } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
+// These helpers are only exported under an __experimental name, but they are
+// the ones core blocks use to apply skipped block supports to an inner element.
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
+import {
+	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
+	__experimentalGetSpacingClassesAndStyles as getSpacingClassesAndStyles,
+	__experimentalGetDimensionsClassesAndStyles as getDimensionsClassesAndStyles,
+} from '@wordpress/block-editor';
+/* eslint-enable @wordpress/no-unsafe-wp-apis */
+
+import { PANEL_CLASSES, cx } from './classes';
 
 export const MODAL_BLOCK_NAME = 'ufo/modale';
 export const LINKED_MODAL_ATTR = 'linkedModalId';
@@ -149,5 +160,40 @@ export function addLinkedModalAttribute( settings ) {
 				default: '',
 			},
 		},
+	};
+}
+
+/**
+ * Returns the tag name for the modal title (level 0 = paragraph).
+ *
+ * @param {number} level Heading level from the block attributes.
+ * @return {string} Tag name.
+ */
+export function getHeadingTagName( level ) {
+	return level ? `h${ String( level ) }` : 'p';
+}
+
+/**
+ * Props of the modal content card. Color, padding and dimensions block
+ * supports are applied here (not on the <dialog>), see block.json
+ * __experimentalSkipSerialization.
+ *
+ * @param {Object} attributes Block attributes.
+ * @return {Object} className and style props.
+ */
+export function getPanelProps( attributes ) {
+	const color = getColorClassesAndStyles( attributes );
+	const spacing = getSpacingClassesAndStyles( attributes );
+	const dimensions = getDimensionsClassesAndStyles( attributes );
+	const style = { ...color.style, ...spacing.style, ...dimensions.style };
+
+	return {
+		className: cx(
+			'wp-block-ufo-modale__panel',
+			PANEL_CLASSES,
+			color.className,
+			dimensions.className
+		),
+		style: Object.keys( style ).length ? style : undefined,
 	};
 }

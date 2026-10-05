@@ -56,15 +56,18 @@
 		],
 		"dimensions": {
 			"height": true,
-			"minHeight": true
+			"minHeight": true,
+			"__experimentalSkipSerialization": true
 		},
 		"color": {
 			"background": true,
-			"text": true
+			"text": true,
+			"__experimentalSkipSerialization": true
 		},
 		"spacing": {
 			"padding": true,
-			"blockGap": true
+			"blockGap": true,
+			"__experimentalSkipSerialization": [ "padding" ]
 		},
 		"html": false
 	},

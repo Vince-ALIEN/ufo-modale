@@ -21,17 +21,10 @@
 	--ufo-select-color-bg: rgba(124, 58, 237, 0.08);
 	--ufo-transition: 120ms ease-in-out;
 
-	/* Keep the close button inside the dashed frame. */
-	--wp-block-ufo-modale-close-button-top: 10px;
-	--wp-block-ufo-modale-close-button-right: 10px;
-
 	/* -------------------------------------------------------------------------
 	   2. Modale : conteneur (look ufo-grid)
 	   ------------------------------------------------------------------------- */
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
 	padding: 14px;
 	border: 1px dashed var(--ufo-color-grid-border);
 	border-radius: var(--ufo-radius);
@@ -85,18 +78,12 @@
 		transform: translateY(0);
 	}
 
-	/* Leave room for the close button next to the title. */
-	.wp-block-ufo-modale__header {
-		padding-right: 40px;
-	}
-
 	/* -------------------------------------------------------------------------
 	   3. Zone de contenu (look ufo-row)
 	   ------------------------------------------------------------------------- */
 	.wp-block-ufo-modale__content {
 		position: relative;
 		min-height: var(--ufo-row-min-height);
-		padding: 16px;
 		border: 1px dashed var(--ufo-color-row-border);
 		border-radius: calc(var(--ufo-radius) - 2px);
 		background-color: var(--ufo-color-row-bg);
@@ -108,9 +95,5 @@
 			border-color: var(--ufo-color-row-border-hover);
 			background-color: rgba(124, 58, 237, 0.04);
 		}
-	}
-
-	.wp-block-ufo-modale__close-button {
-		color: var(--ufo-color-accent-strong);
 	}
 }

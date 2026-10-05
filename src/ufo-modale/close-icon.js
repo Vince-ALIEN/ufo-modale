@@ -7,9 +7,11 @@
  *
  * @see https://lucide.dev/icons/x
  *
+ * @param {Object} props           Component props.
+ * @param {string} props.className Extra classes for the svg element.
  * @return {Element} Close icon.
  */
-export default function CloseIcon() {
+export default function CloseIcon( { className } ) {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +23,9 @@ export default function CloseIcon() {
 			strokeWidth="2"
 			strokeLinecap="round"
 			strokeLinejoin="round"
-			className="lucide lucide-x"
+			className={ [ 'lucide lucide-x', className ]
+				.filter( Boolean )
+				.join( ' ' ) }
 			aria-hidden="true"
 		>
 			<path d="M18 6 6 18" />

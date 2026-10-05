@@ -48,9 +48,22 @@ import { useState, useRef, useEffect } from '@wordpress/element';
 
 import {
 	generateStableModalId,
+	getHeadingTagName,
 	getInnerAllowedBlocks,
+	getPanelProps,
 	MODAL_BLOCK_NAME,
 } from './utils';
+import {
+	CLOSE_BUTTON_CLASSES,
+	CLOSE_BUTTON_ICON_ONLY_CLASSES,
+	CLOSE_BUTTON_WITH_LABEL_CLASSES,
+	CLOSE_ICON_CLASSES,
+	CONTENT_CLASSES,
+	DIALOG_CLASSES,
+	HEADER_CLASSES,
+	TITLE_CLASSES,
+	cx,
+} from './classes';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -78,6 +91,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 	const [ isPreview, setIsPreview ] = useState( false );
 	const dialogRef = useRef( null );
 	const blockProps = useBlockProps( {
+		className: DIALOG_CLASSES,
 		'data-ufo-badge': modalId
 			? `${ __( 'Modal', 'ufo-modale' ) } · #${ modalId }`
 			: __( 'Modal', 'ufo-modale' ),
@@ -171,36 +185,60 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 				closedBy={ isPreview ? 'any' : false }
 				aria-modal="true"
 			>
-				<div className="wp-block-ufo-modale__header">
-					<RichText
-						className="wp-block-ufo-modale__title"
-						tagName={ `h${ String( HeadingTag ) }` }
-						value={ title }
-						onChange={ ( newTitle ) =>
-							setAttributes( { title: newTitle } )
-						}
-						placeholder={ __( 'Heading…', 'ufo-modale' ) }
-					/>
-				</div>
-				<div className="wp-block-ufo-modale__content">
-					<InnerBlocks allowedBlocks={ allowedBlocks } />
-				</div>
-				{ enableCloseButton && closedBy !== 'none' && (
-					<button
-						type="button"
-						className="wp-block-ufo-modale__close-button"
+				<div { ...getPanelProps( attributes ) }>
+					<div
+						className={ cx(
+							'wp-block-ufo-modale__header',
+							HEADER_CLASSES
+						) }
 					>
-						<span className={ displayIconOnly ? 'sr-only' : '' }>
-							{ closeButtonLabel
-								? closeButtonLabel
-								: __(
-										'Close this dialog window',
-										'ufo-modale'
-								  ) }
-						</span>
-						<CloseIcon />
-					</button>
-				) }
+						<RichText
+							className={ cx(
+								'wp-block-ufo-modale__title',
+								TITLE_CLASSES
+							) }
+							tagName={ getHeadingTagName( HeadingTag ) }
+							value={ title }
+							onChange={ ( newTitle ) =>
+								setAttributes( { title: newTitle } )
+							}
+							placeholder={ __( 'Heading…', 'ufo-modale' ) }
+						/>
+						{ enableCloseButton && closedBy !== 'none' && (
+							<button
+								type="button"
+								className={ cx(
+									'wp-block-ufo-modale__close-button',
+									CLOSE_BUTTON_CLASSES,
+									displayIconOnly
+										? CLOSE_BUTTON_ICON_ONLY_CLASSES
+										: CLOSE_BUTTON_WITH_LABEL_CLASSES
+								) }
+							>
+								<span
+									className={
+										displayIconOnly ? 'sr-only' : undefined
+									}
+								>
+									{ closeButtonLabel ||
+										__(
+											'Close this dialog window',
+											'ufo-modale'
+										) }
+								</span>
+								<CloseIcon className={ CLOSE_ICON_CLASSES } />
+							</button>
+						) }
+					</div>
+					<div
+						className={ cx(
+							'wp-block-ufo-modale__content',
+							CONTENT_CLASSES
+						) }
+					>
+						<InnerBlocks allowedBlocks={ allowedBlocks } />
+					</div>
+				</div>
 			</dialog>
 			<BlockControls>
 				<ToolbarGroup>
