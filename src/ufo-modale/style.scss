@@ -55,7 +55,8 @@
 		border: none;
 		cursor: pointer;
 
-		/* Visually hidden label when icon-only (same role as Core `.screen-reader-text`). */
+		/* Visually hidden label when icon-only
+		   (same role as Core `.screen-reader-text`). */
 		.sr-only {
 			border: 0;
 			clip: rect(1px, 1px, 1px, 1px);
