@@ -89,7 +89,7 @@ while IFS= read -r -d '' f; do
 	if ! have_diff "$f"; then
 		missing+=("$f (block.json)")
 	fi
-done < <(find . -name block.json -not -path '*/node_modules/*' -not -path '*/vendor/*' -print0 2>/dev/null)
+done < <(find . -name block.json -not -path '*/node_modules/*' -not -path '*/vendor/*' -not -path './build/*' -print0 2>/dev/null)
 
 if [ ${#missing[@]} -ne 0 ]; then
 	echo "::error::This PR bumps the plugin version. The following required paths must be modified (diff vs base branch):"
@@ -109,7 +109,7 @@ while IFS= read -r -d '' f; do
 		echo "::error::${f} version must equal ${NEW_VER} (from .plugin-data)"
 		fail=1
 	fi
-done < <(find . -name block.json -not -path '*/node_modules/*' -not -path '*/vendor/*' -print0 2>/dev/null)
+done < <(find . -name block.json -not -path '*/node_modules/*' -not -path '*/vendor/*' -not -path './build/*' -print0 2>/dev/null)
 
 if ! grep -F "* Version:" ufo-modale.php | head -1 | grep -qF "$NEW_VER"; then
 	echo "::error::ufo-modale.php plugin header Version must be ${NEW_VER}"
