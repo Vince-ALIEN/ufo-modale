@@ -76,7 +76,11 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 	} = attributes;
 	const [ isPreview, setIsPreview ] = useState( false );
 	const dialogRef = useRef( null );
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( {
+		'data-ufo-badge': modalId
+			? `${ __( 'Modal', 'ufo-modale' ) } · #${ modalId }`
+			: __( 'Modal', 'ufo-modale' ),
+	} );
 	const mergedRef = useMergeRefs( [ dialogRef, blockProps.ref ] );
 
 	const modalBlocksWithSameId = useSelect(

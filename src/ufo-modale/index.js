@@ -9,7 +9,7 @@ import { useSelect } from '@wordpress/data';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, ComboboxControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { AppWindow } from 'lucide-react';
+import { PictureInPicture } from 'lucide-react';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -28,8 +28,30 @@ import {
 	getTriggerAllowedBlocks,
 } from './utils';
 
+// Same icon style as the UFO Blocks (ufo-blocks/src/icons.js → getBlockIcon).
+const blockIcon = {
+	src: (
+		<div
+			style={ {
+				backgroundColor: '#F6F6F7',
+				borderRadius: '4px',
+				padding: '6px',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			} }
+		>
+			<PictureInPicture
+				size={ 20 }
+				color="#EB9188"
+				style={ { fill: 'none' } }
+			/>
+		</div>
+	),
+};
+
 registerBlockType( metadata.name, {
-	icon: <AppWindow />,
+	icon: blockIcon,
 	edit: Edit,
 	save,
 } );
