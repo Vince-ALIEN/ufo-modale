@@ -8,6 +8,9 @@ jobs:
   build-and-release:
     name: "Release new TAG"
     runs-on: ubuntu-latest
+    permissions:
+      # Needed to push the release tag with the default GITHUB_TOKEN.
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
