@@ -1,5 +1,5 @@
 === UFO Modale ===
-Contributors:      Be API Technical Team
+Contributors:      UFO Agency
 Tags:              block
 Tested up to:      6.8
 Stable tag:        1.0.9

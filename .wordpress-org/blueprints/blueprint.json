@@ -10,9 +10,9 @@
 			"step": "installPlugin",
 			"pluginData": {
 				"resource": "git:directory",
-				"url": "https://github.com/BeAPI/ufo-modale",
-				"ref": "1.0.9",
-				"refType": "tag"
+				"url": "https://github.com/Vince-ALIEN/ufo-modale",
+				"ref": "develop",
+				"refType": "branch"
 			},
 			"options": {
 				"activate": true,

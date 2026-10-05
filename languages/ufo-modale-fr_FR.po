@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: UFO Modale 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ufo-modale\n"
+"Report-Msgid-Bugs-To: https://github.com/Vince-ALIEN/ufo-modale/issues\n"
 "POT-Creation-Date: 2026-04-09T12:45:03+00:00\n"
 "PO-Revision-Date: 2026-04-09 14:45+0200\n"
 "Last-Translator: \n"
@@ -27,8 +27,8 @@ msgstr "Bloc de fenêtre modale pour l’éditeur WordPress."
 
 #. Author of the plugin
 #: ufo-modale.php
-msgid "Be API Technical Team"
-msgstr "L'équipe technique de Be API"
+msgid "UFO Agency"
+msgstr "UFO Agency"
 
 #: build/ufo-modale/index.js:193 build/ufo-modale/index.js:203
 msgid "Heading…"

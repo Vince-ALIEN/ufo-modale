@@ -1,5 +1,5 @@
 {
-	"name": "beapi/ufo-modale",
+	"name": "ufo-agency/ufo-modale",
 	"description": "Add a block to display an embedded frame in the WordPress editor.",
 	"type": "wordpress-plugin",
 	"keywords": [
@@ -13,9 +13,8 @@
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
-			"name": "BeAPI",
-			"email": "technical@beapi.fr",
-			"homepage": "https://beapi.fr",
+			"name": "UFO Agency",
+			"homepage": "https://ufo-agency.com",
 			"role": "Company"
 		}
 	],

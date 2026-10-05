@@ -1,6 +1,6 @@
 # UFO Modale
 
-[![Test with WordPress Playground](https://img.shields.io/badge/Test%20with-WordPress%20Playground-0073aa?style=for-the-badge&logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/beapi/ufo-modale/refs/heads/main/.wordpress-org/blueprints/blueprint.json)
+[![Test with WordPress Playground](https://img.shields.io/badge/Test%20with-WordPress%20Playground-0073aa?style=for-the-badge&logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/Vince-ALIEN/ufo-modale/refs/heads/develop/.wordpress-org/blueprints/blueprint.json)
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
 [![WordPress: 6.8+](https://img.shields.io/badge/WordPress-6.8+-green.svg)](https://wordpress.org/)
@@ -35,7 +35,7 @@ UFO Modale is a WordPress plugin that lets you add accessible modal dialogs to y
 ### Installation via Composer
 
 ```bash
-composer require beapi/ufo-modale
+composer require ufo-agency/ufo-modale
 ```
 
 ### Manual Installation
@@ -48,7 +48,7 @@ composer require beapi/ufo-modale
 
 ```bash
 # Clone the repository
-git clone https://github.com/BeAPI/ufo-modale.git
+git clone https://github.com/Vince-ALIEN/ufo-modale.git
 cd ufo-modale
 
 # Install PHP dependencies
@@ -256,10 +256,11 @@ This plugin is distributed under the GPL-2.0-or-later license. See the [LICENSE]
 
 ## 👥 Authors
 
-**Be API Technical Team**
+**UFO Agency**
 
-- Email: <technical@beapi.fr>
-- Website: [https://beapi.fr](https://beapi.fr)
+- Website: [https://ufo-agency.com](https://ufo-agency.com)
+
+Based on [Blockparty Modal](https://github.com/BeAPI/blockparty-modal) by [Be API](https://beapi.fr).
 
 ## 🔗 Useful Links
 
@@ -302,4 +303,4 @@ See [readme.txt](readme.txt) for the full version history. Recent highlights:
 
 ---
 
-Developed with ❤️ by [Be API](https://beapi.fr)
+Developed with ❤️ by [UFO Agency](https://ufo-agency.com)

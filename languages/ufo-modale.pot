@@ -1,9 +1,9 @@
-# Copyright (C) 2026 Be API Technical Team
+# Copyright (C) 2026 UFO Agency
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
 "Project-Id-Version: UFO Modale 1.0.7\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ufo-modale\n"
+"Report-Msgid-Bugs-To: https://github.com/Vince-ALIEN/ufo-modale/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #. Author of the plugin
 #: ufo-modale.php
-msgid "Be API Technical Team"
+msgid "UFO Agency"
 msgstr ""
 
 #: build/ufo-modale/index.js:193
