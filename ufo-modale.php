@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       UFO Modale
  * Description:       Modal block for WordPress editor.
- * Version:           1.0.9
+ * Version:           1.0.10
  * Requires at least: 6.8
  * Requires PHP:      8.1
  * Author:            UFO Agency
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'UFO_MODALE_VERSION', '1.0.9' );
+define( 'UFO_MODALE_VERSION', '1.0.10' );
 define( 'UFO_MODALE_URL', plugin_dir_url( __FILE__ ) );
 define( 'UFO_MODALE_DIR', plugin_dir_path( __FILE__ ) );
 

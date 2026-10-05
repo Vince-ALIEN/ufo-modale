@@ -255,6 +255,11 @@ Based on [Blockparty Modal](https://github.com/BeAPI/blockparty-modal) by [Be AP
 
 See [readme.txt](readme.txt) for the full version history. Recent highlights:
 
+- **1.0.10**
+  - Fork of Blockparty Modal as UFO Modale (UFO Agency), triggered by the UFO Button block from UFO Blocks.
+  - Front markup based on the ufo-boilerplate Tailwind utilities, title font/size/color settings and `aria-labelledby`.
+  - Lucide icons, editor design aligned with UFO Blocks, WordPress Playground demo and wp-env removed.
+
 - **1.0.7**
   - Add block setting for the close button label.
 
