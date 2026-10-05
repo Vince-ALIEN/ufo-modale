@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-import { registerBlockType, getBlockTypes } from '@wordpress/blocks';
+import { registerBlockType } from '@wordpress/blocks';
 import { addFilter } from '@wordpress/hooks';
 import { useSelect } from '@wordpress/data';
 import { InspectorControls } from '@wordpress/block-editor';
@@ -46,22 +46,6 @@ addFilter(
 		return addLinkedModalAttribute( settings );
 	}
 );
-
-// Blocks registered before our script loaded (e.g. core blocks) didn't get the
-// filter — re-register only allowed blocks so linkedModalId is persisted on save.
-const allowedBlocks = getTriggerAllowedBlocks();
-const blockTypes = getBlockTypes();
-blockTypes.forEach( ( blockType ) => {
-	if (
-		allowedBlocks.includes( blockType.name ) &&
-		! blockType.attributes?.[ LINKED_MODAL_ATTR ]
-	) {
-		registerBlockType(
-			blockType.name,
-			addLinkedModalAttribute( blockType )
-		);
-	}
-} );
 
 // Add "Attached modal" panel with Combobox only to blocks allowed as modal triggers (see filter ufo_modale_trigger_allowed_blocks).
 addFilter(

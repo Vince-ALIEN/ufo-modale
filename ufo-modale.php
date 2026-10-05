@@ -180,10 +180,10 @@ add_filter( 'block_editor_settings_all', __NAMESPACE__ . '\\block_editor_setting
 /**
  * Default list of block names allowed to be used as modal triggers (linkedModalId).
  *
- * @return string[] Block names (e.g. 'core/button').
+ * @return string[] Block names (e.g. 'ufo-blocks/ufo-button').
  */
 function get_default_modal_trigger_allowed_blocks(): array {
-	return [ 'core/button' ];
+	return [ 'ufo-blocks/ufo-button' ];
 }
 
 /**
@@ -219,8 +219,8 @@ function get_default_modal_inner_allowed_blocks(): array {
 /**
  * Wraps block output with a trigger wrapper when linkedModalId is set,
  * so the view script can open the modal on click.
- * Only blocks in the allowed list (filterable) get this behavior; by default only core/button.
- * For core/button, the inner link or button is turned into the trigger (no wrapper).
+ * Only blocks in the allowed list (filterable) get this behavior; by default only ufo-blocks/ufo-button.
+ * For ufo-blocks/ufo-button, the link itself is turned into the trigger (no wrapper).
  *
  * @param string                   $block_content The block content.
  * @param array<array-key, mixed>   $block         The full block, including attributes.
@@ -244,7 +244,7 @@ function render_block_add_modal_trigger( $block_content, array $block ) {
 
 	$dialog_id = 'modal-' . $linked_modal_id;
 
-	if ( 'core/button' === $block_name ) {
+	if ( 'ufo-blocks/ufo-button' === $block_name ) {
 		$modified = modify_button_block_for_modal_trigger( $block_content, $linked_modal_id, $dialog_id );
 		if ( null !== $modified ) {
 			return $modified;
@@ -260,12 +260,12 @@ function render_block_add_modal_trigger( $block_content, array $block ) {
 }
 
 /**
- * Modifies core/button block HTML so the link or button element is the modal trigger.
+ * Modifies ufo-blocks/ufo-button block HTML so the link or button element is the modal trigger.
  * Uses WP_HTML_Processor to add/remove attributes; converts <a> to <button> when needed.
  *
  * @since 1.0.0
  *
- * @param string $block_content   Rendered core/button block HTML.
+ * @param string $block_content   Rendered ufo-blocks/ufo-button block HTML.
  * @param string $linked_modal_id Value for data-modal-trigger and aria-controls base.
  * @param string $dialog_id       Full dialog id (e.g. modal-{id}) for aria-controls.
  * @return string|null Modified HTML, or null on parse failure (caller should wrap).
@@ -285,6 +285,8 @@ function modify_button_block_for_modal_trigger( $block_content, $linked_modal_id
 		$processor->set_attribute( 'data-modal-trigger', $linked_modal_id );
 		$processor->set_attribute( 'aria-controls', $dialog_id );
 		$processor->remove_attribute( 'href' );
+		$processor->remove_attribute( 'target' );
+		$processor->remove_attribute( 'rel' );
 		$html = $processor->get_updated_html();
 		if ( '' === $html ) {
 			return null;

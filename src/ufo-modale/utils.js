@@ -81,7 +81,7 @@ export function getTriggerAllowedBlocks() {
 		// Block editor store may not be ready yet.
 	}
 
-	return [ 'core/button' ];
+	return [ 'ufo-blocks/ufo-button' ];
 }
 
 /**

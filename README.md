@@ -16,7 +16,7 @@ UFO Modale is a WordPress plugin that lets you add accessible modal dialogs to y
 - **Modal dialog**: Uses the native `<dialog>` element for semantics and accessibility
 - **Configurable content**: Title (with heading level), rich text content, and optional close button
 - **Close behaviour**: Choose how the modal closes — click outside, close button only, or prevent closing by backdrop
-- **Trigger linking**: Link a block to open a specific modal via `linkedModalId`; by default only the Button block is allowed as a trigger (filterable)
+- **Trigger linking**: Link a block to open a specific modal via `linkedModalId`; by default only the UFO Button block (`ufo-blocks/ufo-button`, from the UFO Blocks plugin) is allowed as a trigger (filterable)
 - **Stable modal ID**: Each modal can have a unique ID for trigger association
 - **Layout & styling**: Supports wide and full-width alignment, dimensions, colors, and spacing
 - **Internationalized**: Multilingual support with translation files (French included)
@@ -71,13 +71,13 @@ npm run build
    - **Close button** — show or hide the close button
    - **Prevent scroll** — lock body scroll when the modal is open
 4. To open the modal from a trigger block:
-   - Add a **Button** block (by default, only the Button block can be a modal trigger)
+   - Add a **UFO Button** block from UFO Blocks (by default, only this block can be a modal trigger)
    - In the block sidebar, open **Attached modal** and select the modal to open
    - On the frontend, clicking that button will open the corresponding modal
 
 ### Blocks allowed as modal triggers
 
-By default, only the **core/button** block can be linked to a modal. To allow other blocks (e.g. paragraph, image, or custom blocks), use the filter `ufo_modale_trigger_allowed_blocks` in your theme or plugin:
+By default, only the **ufo-blocks/ufo-button** block can be linked to a modal. To allow other blocks (e.g. paragraph, image, or custom blocks), use the filter `ufo_modale_trigger_allowed_blocks` in your theme or plugin:
 
 ```php
 add_filter( 'ufo_modale_trigger_allowed_blocks', function ( $blocks ) {
@@ -88,8 +88,8 @@ add_filter( 'ufo_modale_trigger_allowed_blocks', function ( $blocks ) {
 ```
 
 - **Filter name:** `ufo_modale_trigger_allowed_blocks`
-- **Parameters:** `array` — List of block names (e.g. `'core/button'`).
-- **Default:** `array( 'core/button' )`
+- **Parameters:** `array` — List of block names (e.g. `'ufo-blocks/ufo-button'`).
+- **Default:** `array( 'ufo-blocks/ufo-button' )`
 
 ### Blocks allowed inside the modal
 
