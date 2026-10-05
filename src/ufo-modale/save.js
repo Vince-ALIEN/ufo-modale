@@ -72,10 +72,7 @@ export default function save( { attributes } ) {
 					<span className={ displayIconOnly ? 'sr-only' : '' }>
 						{ closeButtonLabel
 							? closeButtonLabel
-							: __(
-									'Close this dialog window',
-									'ufo-modale'
-							  ) }
+							: __( 'Close this dialog window', 'ufo-modale' ) }
 					</span>
 					<Icon icon={ close } />
 				</button>

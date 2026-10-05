@@ -64,8 +64,7 @@ export function getInnerAllowedBlocks() {
  * @return {string[]} Allowed block names.
  */
 export function getTriggerAllowedBlocks() {
-	const localized =
-		window.ufoModaleEditorSettings?.triggerAllowedBlocks;
+	const localized = window.ufoModaleEditorSettings?.triggerAllowedBlocks;
 
 	if ( Array.isArray( localized ) ) {
 		return localized;
@@ -124,8 +123,7 @@ export function getModalOptionsFromEditor( storeSelect ) {
 		}
 		const modalId = block.attributes?.modalId || block.clientId;
 		const title =
-			block.attributes?.title?.trim() ||
-			__( 'Modal', 'ufo-modale' );
+			block.attributes?.title?.trim() || __( 'Modal', 'ufo-modale' );
 		options.push( {
 			value: modalId,
 			label: title || `#${ String( modalId ).slice( 0, 8 ) }`,

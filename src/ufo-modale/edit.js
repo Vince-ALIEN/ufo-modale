@@ -248,10 +248,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 					</ToggleGroupControl>
 					<ToggleControl
 						__next40pxDefaultSize
-						label={ __(
-							'Prevent page scroll',
-							'ufo-modale'
-						) }
+						label={ __( 'Prevent page scroll', 'ufo-modale' ) }
 						help={ __(
 							'If enabled, the modal will prevent the user from scrolling the page while the modal is open.',
 							'ufo-modale'
@@ -264,10 +261,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 				</PanelBody>
 				<PanelBody title={ __( 'Close button', 'ufo-modale' ) }>
 					<ToggleControl
-						label={ __(
-							'Enable close button',
-							'ufo-modale'
-						) }
+						label={ __( 'Enable close button', 'ufo-modale' ) }
 						help={
 							closedBy === 'none'
 								? __(
@@ -289,10 +283,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 					/>
 					{ enableCloseButton && closedBy !== 'none' && (
 						<TextControl
-							label={ __(
-								'Close button label',
-								'ufo-modale'
-							) }
+							label={ __( 'Close button label', 'ufo-modale' ) }
 							help={ __(
 								'If not set, the default label will be used.',
 								'ufo-modale'

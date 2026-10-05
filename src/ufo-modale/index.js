@@ -9,7 +9,7 @@ import { useSelect } from '@wordpress/data';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, ComboboxControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { modal } from '@beapi/icons';
+import { AppWindow } from 'lucide-react';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,7 +29,7 @@ import {
 } from './utils';
 
 registerBlockType( metadata.name, {
-	icon: modal,
+	icon: <AppWindow />,
 	edit: Edit,
 	save,
 } );
