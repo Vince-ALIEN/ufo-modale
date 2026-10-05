@@ -42,7 +42,7 @@ import { useMergeRefs } from '@wordpress/compose';
  */
 import './editor.scss';
 
-import { Icon, close, seen, unseen } from '@wordpress/icons';
+import { X, Eye, EyeOff } from 'lucide-react';
 import { useState, useRef, useEffect } from '@wordpress/element';
 
 import {
@@ -193,7 +193,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 										'ufo-modale'
 								  ) }
 						</span>
-						<Icon icon={ close } />
+						<X />
 					</button>
 				) }
 			</dialog>
@@ -208,7 +208,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 					/>
 					<ToolbarButton
 						disabled={ true }
-						icon={ isPreview ? unseen : seen }
+						icon={ isPreview ? <EyeOff /> : <Eye /> }
 						onClick={ () => setIsPreview( ! isPreview ) }
 						label={
 							isPreview

@@ -28,7 +28,6 @@
 		"@wordpress/element": "^6.39.0",
 		"@wordpress/hooks": "^4.39.0",
 		"@wordpress/i18n": "latest",
-		"@wordpress/icons": "^11.6.0",
 		"lucide-react": "^1.52.0"
 	},
 	"devDependencies": {
