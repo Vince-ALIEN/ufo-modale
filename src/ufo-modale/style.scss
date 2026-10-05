@@ -1,0 +1,76 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-ufo-modale {
+	--wp-block-ufo-modale-width: 100%;
+	--wp-block-ufo-modale-margin: auto !important;
+	--wp-block-ufo-modale-padding: 0;
+	--wp-block-ufo-modale-border-radius: 0;
+	--wp-block-ufo-modale-border: 1px solid #000;
+	--wp-block-ufo-modale-backdrop-color: rgba(0, 0, 0, 0.5);
+	--wp-block-ufo-modale-z-index: 1;
+	--wp-block-ufo-modale-title-margin: 0;
+	--wp-block-ufo-modale-title-color: inherit;
+	--wp-block-ufo-modale-close-button-top: 0;
+	--wp-block-ufo-modale-close-button-right: 0;
+	--wp-block-ufo-modale-close-button-gap: 4px;
+
+	z-index: var(--wp-block-ufo-modale-z-index);
+	border-radius: var(--wp-block-ufo-modale-border-radius);
+	border: var(--wp-block-ufo-modale-border);
+	padding: var(--wp-block-ufo-modale-padding);
+	width: var(--wp-block-ufo-modale-width);
+
+	&:not(.block-editor-block-list__block) {
+		margin: var(--wp-block-ufo-modale-margin);
+
+		&:first-child,
+		&:last-child {
+			margin-block: var(--wp-block-ufo-modale-margin);
+		}
+	}
+
+	&::backdrop {
+		background-color: var(--wp-block-ufo-modale-backdrop-color);
+	}
+
+	&__title {
+		margin: var(--wp-block-ufo-modale-title-margin);
+		color: var(--wp-block-ufo-modale-title-color);
+	}
+
+	&__close-button {
+		display: flex;
+		align-items: center;
+		gap: var(--wp-block-ufo-modale-close-button-gap);
+		position: absolute;
+		top: var(--wp-block-ufo-modale-close-button-top);
+		right: var(--wp-block-ufo-modale-close-button-right);
+		background-color: transparent;
+		padding: 0;
+		border: none;
+		cursor: pointer;
+
+		/* Visually hidden label when icon-only (same role as Core `.screen-reader-text`). */
+		.sr-only {
+			border: 0;
+			clip: rect(1px, 1px, 1px, 1px);
+			clip-path: inset(50%);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+			word-wrap: normal !important;
+		}
+	}
+}
+
+html:has(.wp-block-ufo-modale--prevent-scroll[open]) {
+	overflow: hidden;
+}

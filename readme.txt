@@ -1,0 +1,90 @@
+=== UFO Modale ===
+Contributors:      Be API Technical Team
+Tags:              block
+Tested up to:      6.8
+Stable tag:        1.0.9
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+
+Example block scaffolded with Create Block tool.
+
+== Description ==
+
+This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+
+For backwards compatibility, if this section is missing, the full length of the short description will be used, and
+Markdown parsed.
+
+== Installation ==
+
+This section describes how to install the plugin and get it working.
+
+e.g.
+
+1. Upload the plugin files to the `/wp-content/plugins/ufo-modale` directory, or install the plugin through the WordPress plugins screen directly.
+1. Activate the plugin through the 'Plugins' screen in WordPress
+
+
+== Frequently Asked Questions ==
+
+= A question that someone might have =
+
+An answer to that question.
+
+= What about foo bar? =
+
+Answer to foo bar dilemma.
+
+== Screenshots ==
+
+1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
+the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
+directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
+(or jpg, jpeg, gif).
+2. This is the second screen shot
+
+== Changelog ==
+
+= 1.0.9 =
+* Fix `ufo_modale_inner_allowed_blocks` and `ufo_modale_trigger_allowed_blocks` filters not being applied in the block editor on recent WordPress versions.
+* Pass allowed block lists to the editor script via `wp_localize_script` so they are available despite the block editor settings allowlist.
+
+= 1.0.8 =
+* Add CI check and a shell script to validate version bumps for releases.
+* Add a project changelog and update the WordPress Playground demo blueprint.
+* Adjust quality workflows, exclude `tests/` from the plugin zip, and remove Psalm from dev dependencies.
+
+= 1.0.7 =
+* Add block setting for the close button label.
+
+= 1.0.6 =
+* Fix `blueprint.json` config.
+
+= 1.0.5 =
+* Add `blueprint.json` to test the plugin on WordPress Playground.
+* Add `screen-reader-text` class to close button element when display icon only is selected.
+
+= 1.0.4 =
+* Filter `ufo_modale_inner_allowed_blocks` to control allowed blocks in the modal.
+
+= 1.0.3 =
+* Fix: prevent adding linkedModalId attribute to non allowed blocks.
+* Set min required PHP version to 8.1
+
+= 1.0.2 =
+* Filter `ufo_modale_trigger_allowed_blocks` to control which blocks can be modal triggers; dialog margin and InnerBlocks fixes.
+* Crawl Modal blocks from patterns
+* Style issues
+
+= 1.0.1 =
+* Fix margin style for dialog element; set to auto by default instead of 0.
+* Remove dupplicated InnerBlocks.Content
+
+= 1.0.0 =
+* Initial Release
+
+== Arbitrary section ==
+
+You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
+plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
+"installation." Arbitrary sections will be shown below the built-in sections outlined above.
