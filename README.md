@@ -14,6 +14,7 @@ UFO Modale is a WordPress plugin that lets you add accessible modal dialogs to y
 
 - **Native Gutenberg Block**: Full integration with the WordPress block editor
 - **Modal dialog**: Uses the native `<dialog>` element for semantics and accessibility
+- **Tailwind CSS only on the frontend**: The modal is styled exclusively with Tailwind CSS utility classes (listed in [`src/ufo-modale/classes.js`](src/ufo-modale/classes.js)) and the theme colors. The plugin ships no layout or color CSS of its own: its stylesheet only keeps three rules that have no utility equivalent (backdrop color, native dialog centering after Tailwind Preflight, page scroll lock).
 - **Configurable content**: Title (with heading level), rich text content, and optional close button
 - **Close behaviour**: Choose how the modal closes — click outside, close button only, or prevent closing by backdrop
 - **Trigger linking**: Link a block to open a specific modal via `linkedModalId`; by default only the UFO Button block (`ufo-blocks/ufo-button`, from the UFO Blocks plugin) is allowed as a trigger (filterable)
@@ -28,6 +29,13 @@ UFO Modale is a WordPress plugin that lets you add accessible modal dialogs to y
 - **PHP**: Version 8.1 or higher
 - **PHP Extension**: ext-json
 - **[UFO Blocks](https://github.com/Vince-ALIEN/ufo-blocks)** plugin (public repository), installed and activated. It provides the **UFO Button** block (`ufo-blocks/ufo-button`), the only block allowed by default to open a modal, and the **UFO buttons group** (`ufo-blocks/ufo-buttons-group`) allowed inside the modal. Without it, no block can open a modal unless you allow other blocks with the `ufo_modale_trigger_allowed_blocks` filter.
+- **A theme built with Tailwind CSS v4**, such as the UFO Agency ufo-boilerplate theme, that generates the classes used by the modal. Add this line to the theme Tailwind sources (in ufo-boilerplate: `tailwind/tailwind-theme.css`; adapt the relative path to your theme location) so they are always compiled:
+
+  ```css
+  @source "../../../plugins/ufo-modale/src/ufo-modale/classes.js";
+  ```
+
+  Without these classes, the modal is displayed unstyled.
 
 ## 📦 Installation
 
