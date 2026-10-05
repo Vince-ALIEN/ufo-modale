@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ufo/modale",
+  "version": "1.0.10",
+  "title": "Modal",
+  "category": "widgets",
+  "description": "Insert a modal dialog that opens on trigger. Configure content and behaviour in the editor; the modal is displayed on the frontend when activated.",
+  "attributes": {
+    "headingLevel": {
+      "type": "number",
+      "default": 2
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "titleFontFamily": {
+      "type": "string"
+    },
+    "titleFontSize": {
+      "type": "string"
+    },
+    "customTitleFontSize": {
+      "type": "string"
+    },
+    "titleTextColor": {
+      "type": "string"
+    },
+    "customTitleTextColor": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "modalId": {
+      "type": "string",
+      "default": ""
+    },
+    "closedBy": {
+      "type": "string",
+      "default": "any",
+      "enum": [
+        "any",
+        "closerequest",
+        "none"
+      ]
+    },
+    "enableCloseButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeButtonLabel": {
+      "type": "string"
+    },
+    "displayIconOnly": {
+      "type": "boolean",
+      "default": false
+    },
+    "preventScroll": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {},
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "dimensions": {
+      "height": true,
+      "minHeight": true,
+      "__experimentalSkipSerialization": true
+    },
+    "color": {
+      "background": true,
+      "text": true,
+      "__experimentalSkipSerialization": true
+    },
+    "spacing": {
+      "padding": true,
+      "blockGap": true,
+      "__experimentalSkipSerialization": [
+        "padding"
+      ]
+    },
+    "html": false
+  },
+  "textdomain": "ufo-modale",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
