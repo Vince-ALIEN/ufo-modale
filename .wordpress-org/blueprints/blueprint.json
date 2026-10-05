@@ -11,8 +11,8 @@
 			"pluginData": {
 				"resource": "git:directory",
 				"url": "https://github.com/Vince-ALIEN/ufo-modale",
-				"ref": "develop",
-				"refType": "branch"
+				"ref": "1.0.9",
+				"refType": "tag"
 			},
 			"options": {
 				"activate": true,
