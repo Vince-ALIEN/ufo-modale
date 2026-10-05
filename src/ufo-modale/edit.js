@@ -42,7 +42,8 @@ import { useMergeRefs } from '@wordpress/compose';
  */
 import './editor.scss';
 
-import { X, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
+import CloseIcon from './close-icon';
 import { useState, useRef, useEffect } from '@wordpress/element';
 
 import {
@@ -197,7 +198,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 										'ufo-modale'
 								  ) }
 						</span>
-						<X />
+						<CloseIcon />
 					</button>
 				) }
 			</dialog>

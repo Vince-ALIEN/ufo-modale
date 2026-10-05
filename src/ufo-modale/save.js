@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
-import { X } from 'lucide-react';
+import CloseIcon from './close-icon';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -74,7 +74,7 @@ export default function save( { attributes } ) {
 							? closeButtonLabel
 							: __( 'Close this dialog window', 'ufo-modale' ) }
 					</span>
-					<X />
+					<CloseIcon />
 				</button>
 			) }
 		</dialog>
