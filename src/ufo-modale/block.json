@@ -15,6 +15,21 @@
 			"type": "string",
 			"default": ""
 		},
+		"titleFontFamily": {
+			"type": "string"
+		},
+		"titleFontSize": {
+			"type": "string"
+		},
+		"customTitleFontSize": {
+			"type": "string"
+		},
+		"titleTextColor": {
+			"type": "string"
+		},
+		"customTitleTextColor": {
+			"type": "string"
+		},
 		"content": {
 			"type": "string",
 			"default": ""

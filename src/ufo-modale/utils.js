@@ -8,13 +8,15 @@ import { __ } from '@wordpress/i18n';
 // the ones core blocks use to apply skipped block supports to an inner element.
 /* eslint-disable @wordpress/no-unsafe-wp-apis */
 import {
+	getColorClassName,
+	getFontSizeClass,
 	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
 	__experimentalGetSpacingClassesAndStyles as getSpacingClassesAndStyles,
 	__experimentalGetDimensionsClassesAndStyles as getDimensionsClassesAndStyles,
 } from '@wordpress/block-editor';
 /* eslint-enable @wordpress/no-unsafe-wp-apis */
 
-import { PANEL_CLASSES, cx } from './classes';
+import { PANEL_CLASSES, TITLE_CLASSES, cx } from './classes';
 
 export const MODAL_BLOCK_NAME = 'ufo/modale';
 export const LINKED_MODAL_ATTR = 'linkedModalId';
@@ -193,6 +195,54 @@ export function getPanelProps( attributes ) {
 			PANEL_CLASSES,
 			color.className,
 			dimensions.className
+		),
+		style: Object.keys( style ).length ? style : undefined,
+	};
+}
+
+/**
+ * Returns the id of the modal title, used by the dialog aria-labelledby.
+ *
+ * @param {string} dialogId Dialog element id.
+ * @return {string|undefined} Title id.
+ */
+export function getTitleId( dialogId ) {
+	return dialogId ? `${ dialogId }-title` : undefined;
+}
+
+/**
+ * Class names and inline styles of the modal title (font family, size and
+ * color). Presets use the classes WordPress generates from theme.json;
+ * custom values are inline styles.
+ *
+ * @param {Object} attributes Block attributes.
+ * @return {Object} className and style props.
+ */
+export function getTitleProps( attributes ) {
+	const {
+		titleFontFamily,
+		titleFontSize,
+		customTitleFontSize,
+		titleTextColor,
+		customTitleTextColor,
+	} = attributes;
+
+	const style = {};
+	if ( ! titleFontSize && customTitleFontSize ) {
+		style.fontSize = customTitleFontSize;
+	}
+	if ( ! titleTextColor && customTitleTextColor ) {
+		style.color = customTitleTextColor;
+	}
+
+	return {
+		className: cx(
+			'wp-block-ufo-modale__title',
+			TITLE_CLASSES,
+			titleFontFamily && `has-${ titleFontFamily }-font-family`,
+			titleFontSize && getFontSizeClass( titleFontSize ),
+			( titleTextColor || customTitleTextColor ) && 'has-text-color',
+			titleTextColor && getColorClassName( 'color', titleTextColor )
 		),
 		style: Object.keys( style ).length ? style : undefined,
 	};

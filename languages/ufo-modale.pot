@@ -2,21 +2,26 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: UFO Modale 1.0.7\n"
-"Report-Msgid-Bugs-To: https://github.com/Vince-ALIEN/ufo-modale/issues\n"
+"Project-Id-Version: UFO Modale 1.0.9\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ufo-modale\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-09T12:45:03+00:00\n"
+"POT-Creation-Date: 2026-10-05T08:40:11+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ufo-modale\n"
 
 #. Plugin Name of the plugin
 #: ufo-modale.php
 msgid "UFO Modale"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: ufo-modale.php
+msgid "https://github.com/Vince-ALIEN/ufo-modale"
 msgstr ""
 
 #. Description of the plugin
@@ -29,130 +34,121 @@ msgstr ""
 msgid "UFO Agency"
 msgstr ""
 
-#: build/ufo-modale/index.js:193
-#: build/ufo-modale/index.js:203
+#. Author URI of the plugin
+#: ufo-modale.php
+msgid "https://ufo-agency.com"
+msgstr ""
+
+#: build/ufo-modale/index.js:1
+msgid "Title"
+msgstr ""
+
+#: build/ufo-modale/index.js:1
+msgid "Font"
+msgstr ""
+
+#: build/ufo-modale/index.js:1
+msgid "Default"
+msgstr ""
+
+#: build/ufo-modale/index.js:1
+msgid "Color"
+msgstr ""
+
+#: build/ufo-modale/index.js:1
+msgid "Modal"
+msgstr ""
+
+#: build/ufo-modale/index.js:1
 msgid "Heading…"
 msgstr ""
 
-#: build/ufo-modale/index.js:205
-#: build/ufo-modale/index.js:273
-#: build/ufo-modale/index.js:519
-#: build/ufo-modale/index.js:215
-#: build/ufo-modale/index.js:319
-#: build/ufo-modale/index.js:558
+#: build/ufo-modale/index.js:1
 msgid "Close this dialog window"
 msgstr ""
 
-#: build/ufo-modale/index.js:222
-#: build/ufo-modale/index.js:236
+#: build/ufo-modale/index.js:1
 msgid "Hide"
 msgstr ""
 
-#: build/ufo-modale/index.js:222
-#: build/ufo-modale/index.js:237
+#: build/ufo-modale/index.js:1
 msgid "Preview"
 msgstr ""
 
-#: build/ufo-modale/index.js:227
-#: build/ufo-modale/index.js:243
+#: build/ufo-modale/index.js:1
 msgid "Modal settings"
 msgstr ""
 
-#: build/ufo-modale/index.js:231
-#: build/ufo-modale/index.js:247
+#: build/ufo-modale/index.js:1
 msgid "Closed by"
 msgstr ""
 
-#: build/ufo-modale/index.js:232
-#: build/ufo-modale/index.js:248
+#: build/ufo-modale/index.js:1
 msgid "Determines how the modal will be closed."
 msgstr ""
 
-#: build/ufo-modale/index.js:238
-#: build/ufo-modale/index.js:258
+#: build/ufo-modale/index.js:1
 msgid "Any"
 msgstr ""
 
-#: build/ufo-modale/index.js:241
-#: build/ufo-modale/index.js:262
+#: build/ufo-modale/index.js:1
 msgid "Close request"
 msgstr ""
 
-#: build/ufo-modale/index.js:244
-#: build/ufo-modale/index.js:407
-#: build/ufo-modale/index.js:266
-#: build/ufo-modale/index.js:448
+#: build/ufo-modale/index.js:1
 msgid "None"
 msgstr ""
 
-#: build/ufo-modale/index.js:249
-#: build/ufo-modale/index.js:272
+#: build/ufo-modale/index.js:1
 msgid "Prevent page scroll"
 msgstr ""
 
-#: build/ufo-modale/index.js:250
-#: build/ufo-modale/index.js:276
+#: build/ufo-modale/index.js:1
 msgid "If enabled, the modal will prevent the user from scrolling the page while the modal is open."
 msgstr ""
 
-#: build/ufo-modale/index.js:257
-#: build/ufo-modale/index.js:286
+#: build/ufo-modale/index.js:1
 msgid "Close button"
 msgstr ""
 
-#: build/ufo-modale/index.js:259
-#: build/ufo-modale/index.js:288
+#: build/ufo-modale/index.js:1
 msgid "Enable close button"
 msgstr ""
 
-#: build/ufo-modale/index.js:260
-#: build/ufo-modale/index.js:294
+#: build/ufo-modale/index.js:1
 msgid "You have chosen to not close the modal by clicking the close button. Therefore, the close button will not be displayed."
 msgstr ""
 
-#: build/ufo-modale/index.js:260
-#: build/ufo-modale/index.js:298
+#: build/ufo-modale/index.js:1
 msgid "If enabled, a close button will be displayed in the modal. The close button will close the modal when clicked."
 msgstr ""
 
-#: build/ufo-modale/index.js:267
-#: build/ufo-modale/index.js:313
+#: build/ufo-modale/index.js:1
 msgid "Close button label"
 msgstr ""
 
-#: build/ufo-modale/index.js:268
-#: build/ufo-modale/index.js:314
+#: build/ufo-modale/index.js:1
 msgid "If not set, the default label will be used."
 msgstr ""
 
-#: build/ufo-modale/index.js:275
-#: build/ufo-modale/index.js:323
+#: build/ufo-modale/index.js:1
 msgid "Display icon only"
 msgstr ""
 
-#: build/ufo-modale/index.js:276
-#: build/ufo-modale/index.js:324
+#: build/ufo-modale/index.js:1
 msgid "If enabled, only the close icon will be displayed in the close button. The label will not be displayed."
 msgstr ""
 
-#: build/ufo-modale/index.js:415
-#: build/ufo-modale/index.js:459
+#: build/ufo-modale/index.js:1
 msgid "Attached modal"
 msgstr ""
 
-#: build/ufo-modale/index.js:418
-#: build/ufo-modale/index.js:463
+#: build/ufo-modale/index.js:1
 msgid "Modal to open when block is clicked"
 msgstr ""
 
-#: build/ufo-modale/index.js:424
-#: build/ufo-modale/index.js:474
+#: build/ufo-modale/index.js:1
 msgid "Select a modal…"
-msgstr ""
-
-#: build/ufo-modale/index.js:586
-#: build/ufo-modale/index.js:616
-msgid "Modal"
 msgstr ""
 
 #: build/ufo-modale/block.json

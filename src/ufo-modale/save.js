@@ -22,10 +22,14 @@ import {
 	CONTENT_CLASSES,
 	DIALOG_CLASSES,
 	HEADER_CLASSES,
-	TITLE_CLASSES,
 	cx,
 } from './classes';
-import { getHeadingTagName, getPanelProps } from './utils';
+import {
+	getHeadingTagName,
+	getPanelProps,
+	getTitleId,
+	getTitleProps,
+} from './utils';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -53,6 +57,7 @@ export default function save( { attributes } ) {
 	const dialogId = modalId ? MODAL_ID_PREFIX + modalId : undefined;
 	const hasTitle = ! RichText.isEmpty( title );
 	const hasCloseButton = enableCloseButton && closedBy !== 'none';
+	const titleId = hasTitle ? getTitleId( dialogId ) : undefined;
 
 	return (
 		<dialog
@@ -64,6 +69,8 @@ export default function save( { attributes } ) {
 			} ) }
 			id={ dialogId }
 			aria-modal="true"
+			aria-labelledby={ titleId }
+			aria-label={ titleId ? undefined : __( 'Modal', 'ufo-modale' ) }
 			// closedBy is a valid dialog attribute (HTML spec); ESLint doesn't recognize it yet.
 			// eslint-disable-next-line react/no-unknown-property
 			closedBy={ closedBy }
@@ -78,10 +85,8 @@ export default function save( { attributes } ) {
 					>
 						{ hasTitle && (
 							<RichText.Content
-								className={ cx(
-									'wp-block-ufo-modale__title',
-									TITLE_CLASSES
-								) }
+								{ ...getTitleProps( attributes ) }
+								id={ titleId }
 								tagName={ getHeadingTagName( headingLevel ) }
 								value={ title }
 							/>

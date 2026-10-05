@@ -51,6 +51,7 @@ import {
 	getHeadingTagName,
 	getInnerAllowedBlocks,
 	getPanelProps,
+	getTitleProps,
 	MODAL_BLOCK_NAME,
 } from './utils';
 import {
@@ -61,9 +62,9 @@ import {
 	CONTENT_CLASSES,
 	DIALOG_CLASSES,
 	HEADER_CLASSES,
-	TITLE_CLASSES,
 	cx,
 } from './classes';
+import TitleSettings from './title-settings';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -193,10 +194,7 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 						) }
 					>
 						<RichText
-							className={ cx(
-								'wp-block-ufo-modale__title',
-								TITLE_CLASSES
-							) }
+							{ ...getTitleProps( attributes ) }
 							tagName={ getHeadingTagName( HeadingTag ) }
 							value={ title }
 							onChange={ ( newTitle ) =>
@@ -302,6 +300,10 @@ export default function Edit( { clientId, attributes, setAttributes } ) {
 						}
 					/>
 				</PanelBody>
+				<TitleSettings
+					attributes={ attributes }
+					setAttributes={ setAttributes }
+				/>
 				<PanelBody title={ __( 'Close button', 'ufo-modale' ) }>
 					<ToggleControl
 						label={ __( 'Enable close button', 'ufo-modale' ) }

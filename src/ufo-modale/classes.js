@@ -7,8 +7,9 @@
  */
 
 // Native <dialog>: the browser handles the overlay, centering and focus.
+// not-prose keeps Tailwind Typography styles out of the modal.
 export const DIALOG_CLASSES =
-	'w-full max-w-xl p-4 bg-transparent overflow-y-auto';
+	'not-prose w-full max-w-xl p-4 bg-transparent overflow-y-auto';
 
 // Modal content card.
 export const PANEL_CLASSES =
