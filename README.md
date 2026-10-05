@@ -27,6 +27,7 @@ UFO Modale is a WordPress plugin that lets you add accessible modal dialogs to y
 - **WordPress**: Version 6.8 or higher
 - **PHP**: Version 8.1 or higher
 - **PHP Extension**: ext-json
+- **[UFO Blocks](https://github.com/Vince-ALIEN/ufo-blocks)** plugin (public repository), installed and activated. It provides the **UFO Button** block (`ufo-blocks/ufo-button`), the only block allowed by default to open a modal, and the **UFO buttons group** (`ufo-blocks/ufo-buttons-group`) allowed inside the modal. Without it, no block can open a modal unless you allow other blocks with the `ufo_modale_trigger_allowed_blocks` filter.
 
 ## 📦 Installation
 
@@ -38,13 +39,17 @@ composer require ufo-agency/ufo-modale
 
 ### Manual Installation
 
-1. Download the latest version of the plugin
-2. Extract the archive to the `/wp-content/plugins/` folder
-3. Activate the plugin from the WordPress "Plugins" menu
+1. Install and activate [UFO Blocks](https://github.com/Vince-ALIEN/ufo-blocks)
+2. Download the latest version of the plugin
+3. Extract the archive to the `/wp-content/plugins/` folder
+4. Activate the plugin from the WordPress "Plugins" menu
 
 ### Development Installation
 
 ```bash
+# Install the UFO Blocks dependency (from wp-content/plugins/)
+git clone https://github.com/Vince-ALIEN/ufo-blocks.git
+
 # Clone the repository
 git clone https://github.com/Vince-ALIEN/ufo-modale.git
 cd ufo-modale
@@ -158,11 +163,6 @@ npm run format
 # Create plugin ZIP archive
 npm run plugin-zip
 
-# Start local development environment
-npm run start:env
-
-# Stop local development environment
-npm run stop:env
 ```
 
 #### PHP
@@ -189,22 +189,6 @@ The project follows WordPress coding standards:
 - **ESLint** with WordPress rules for JavaScript
 - **Psalm** for PHP static analysis
 - **GrumPHP** to automate pre-commit checks
-
-### Development Environment Setup
-
-The plugin uses `@wordpress/env` to create a local WordPress development environment:
-
-```bash
-# Start the environment
-npm run start:env
-
-# Access WordPress
-# URL: http://localhost:8888
-# Default credentials: admin / password
-
-# Stop the environment
-npm run stop:env
-```
 
 ## 🔍 Code Quality
 
