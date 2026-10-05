@@ -27,7 +27,6 @@ export const DEFAULT_INNER_ALLOWED_BLOCKS = [
 	'core/image',
 	'core/gallery',
 	'core/video',
-	'core/buttons',
 	'core/spacer',
 	'ufo-blocks/ufo-buttons-group',
 	'ufo-blocks/ufo-button',
