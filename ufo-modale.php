@@ -55,6 +55,56 @@ function init(): void {
 add_action( 'init', __NAMESPACE__ . '\\init', 10, 0 );
 
 /**
+ * Allows the modal markup (dialog attributes and the Lucide close icon) in post content,
+ * so it is not stripped when saved by users without the unfiltered_html capability.
+ *
+ * @param mixed               $tags    Allowed HTML tags and attributes.
+ * @param string|array<mixed> $context Context name.
+ * @return mixed Filtered allowed tags.
+ */
+function kses_allow_modal_markup( $tags, $context ) {
+	if ( 'post' !== $context || ! is_array( $tags ) ) {
+		return $tags;
+	}
+
+	$extra = [
+		'dialog' => [
+			'aria-modal' => true,
+			'closedby'   => true,
+			'class'      => true,
+			'id'         => true,
+			'style'      => true,
+		],
+		'svg'    => [
+			'xmlns'           => true,
+			'width'           => true,
+			'height'          => true,
+			'viewbox'         => true,
+			'fill'            => true,
+			'stroke'          => true,
+			'stroke-width'    => true,
+			'stroke-linecap'  => true,
+			'stroke-linejoin' => true,
+			'class'           => true,
+			'aria-hidden'     => true,
+			'focusable'       => true,
+		],
+		'path'   => [
+			'd' => true,
+		],
+	];
+
+	foreach ( $extra as $tag => $attributes ) {
+		$existing     = isset( $tags[ $tag ] ) && is_array( $tags[ $tag ] ) ? $tags[ $tag ] : [];
+		$tags[ $tag ] = array_merge( $existing, $attributes );
+	}
+
+	return $tags;
+}
+
+add_filter( 'wp_kses_allowed_html', __NAMESPACE__ . '\\kses_allow_modal_markup', 10, 2 );
+
+/**
  * Returns the filtered list of blocks allowed inside the modal block.
  *
  * @return string[] Block names.

@@ -29,7 +29,8 @@
 		},
 		"platform": {
 			"php": "8.1.31"
-		}
+		},
+		"autoloader-suffix": "UfoModale"
 	},
 	"require": {
 		"php": ">=8.1",
