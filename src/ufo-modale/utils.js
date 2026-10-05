@@ -28,8 +28,10 @@ export const DEFAULT_INNER_ALLOWED_BLOCKS = [
 	'core/gallery',
 	'core/video',
 	'core/buttons',
-	'core/button',
 	'core/spacer',
+	'ufo-blocks/ufo-buttons-group',
+	'ufo-blocks/ufo-button',
+	'contact-form-7/contact-form-selector',
 ];
 
 /**

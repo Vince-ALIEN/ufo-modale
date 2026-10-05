@@ -110,7 +110,7 @@ add_filter( 'ufo_modale_inner_allowed_blocks', function () {
 ```
 
 - **Filter name:** `ufo_modale_inner_allowed_blocks`
-- **Parameters:** `array` — List of block names (e.g. `'core/paragraph'`, `'core/button'`). Default list includes paragraph, heading, list, image, gallery, video, buttons, embed, shortcode, etc.
+- **Parameters:** `array` — List of block names (e.g. `'core/paragraph'`, `'core/button'`). Default list includes paragraph, heading, list, image, gallery, video, buttons, embed, shortcode, UFO buttons group / UFO button (`ufo-blocks/ufo-buttons-group`, `ufo-blocks/ufo-button`) and Contact Form 7 (`contact-form-7/contact-form-selector`), etc.
 
 ## 🛠️ Development
 
